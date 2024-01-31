@@ -36,10 +36,12 @@ boxes.forEach((box) => {
       box.disabled = true;
       count++; //we increased count now
       
+      //we check for winner through check winner function when counts becomes 3 or more 
       if(count>=3){
       var isWinner = checkWinner(); 
       }
-      
+
+      //game draw 
       if (count === 9 && !isWinner) {
         gameDraw();
       }

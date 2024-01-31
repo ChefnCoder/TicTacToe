@@ -4,7 +4,7 @@
   }
   
   body {
-    background-color: #548687;
+    background-color: #ebefd2;
     text-align: center;
   }
   
@@ -12,7 +12,7 @@
     font-size:xx-large;
     font-weight: 1000;
     width: auto;
-    background-color:beige;
+    /* background-color:beige; */
   }
   .container {
     height: 70vh;
@@ -39,25 +39,27 @@
     border: none;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
     font-size: 8vmin;
-    color: #b0413e;
-    background-color: #ffffc7;
+    color: white;
+    background-color: #2ec4b6;
     cursor: pointer;
   }
-  
+  .box:hover{
+    background-color: #0ea495 ;
+  }
   .btn {
     padding: 1rem;
     font-size: 1.25rem;
     font-weight: 500;
-    background-image: linear-gradient(white,black);
+    background-image: linear-gradient(rgb(116, 115, 115),black);
     color: #fff;
     border-radius: 1rem;
     border: solid 2px black;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 5 );
+    /* box-shadow: 0 0 1rem rgba(0, 0, 0, 5 ); */
     cursor: pointer;
   }
   
   #msg {
-    color: #ffffc7;
+    color: #04b42a;
     font-size: 5vmin;
   }
   
