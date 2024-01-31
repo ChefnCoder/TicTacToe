@@ -7,6 +7,7 @@ let msg = document.querySelector("#msg");
 let turnO = true; //playerX, playerO
 let count = 0; //To Track Draw
 
+//below all are winning patterns
 const winPatterns = [
   [0, 1, 2],
   [0, 3, 6],
@@ -18,34 +19,43 @@ const winPatterns = [
   [6, 7, 8],
 ];
 
-const resetGame = () => {
+
+boxes.forEach((box) => {
+
+    box.addEventListener("click", () => {
+      if (turnO) {
+        //playerO
+        box.innerText = "O";
+        turnO = false;
+      } else {
+        //playerX
+        box.innerText = "X";
+        turnO = true;
+      }
+      //this inbuilt func disables the box
+      box.disabled = true;
+      count++; //we increased count now
+      
+      if(count>=3){
+      var isWinner = checkWinner(); 
+      }
+      
+      if (count === 9 && !isWinner) {
+        gameDraw();
+      }
+      
+    });
+  });
+
+const resetGame = (buttonname) => {
+  clickeffect(buttonname,"linear-gradient(black,black")
   turnO = true;
-  count = 0;
+  count = 0;      
   enableBoxes();
   msgContainer.classList.add("hide");
 };
 
-boxes.forEach((box) => {
-  box.addEventListener("click", () => {
-    if (turnO) {
-      //playerO
-      box.innerText = "O";
-      turnO = false;
-    } else {
-      //playerX
-      box.innerText = "X";
-      turnO = true;
-    }
-    box.disabled = true;
-    count++;
 
-    let isWinner = checkWinner();
-
-    if (count === 9 && !isWinner) {
-      gameDraw();
-    }
-  });
-});
 
 const gameDraw = () => {
   msg.innerText = `Game was a Draw.`;
@@ -80,6 +90,7 @@ const checkWinner = () => {
 
     if (pos1Val != "" && pos2Val != "" && pos3Val != "") {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
+
         showWinner(pos1Val);
         return true;
       }
@@ -87,5 +98,18 @@ const checkWinner = () => {
   }
 };
 
-newGameBtn.addEventListener("click", resetGame);
-resetBtn.addEventListener("click", resetGame);
+newGameBtn.addEventListener("click", ()=>{
+    resetGame(newGameBtn);
+});
+resetBtn.addEventListener("click",()=>{
+   resetGame(resetBtn)
+});
+
+function clickeffect(buttoname,newbackgroundImage){
+    var computedStyle = window.getComputedStyle(buttoname);
+    var oldbackgroundImage = computedStyle.backgroundImage;
+    buttoname.style.backgroundImage = newbackgroundImage;
+    setTimeout(function(){
+        buttoname.style.backgroundImage = oldbackgroundImage;
+    },100)
+}

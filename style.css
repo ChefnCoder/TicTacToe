@@ -8,6 +8,12 @@
     text-align: center;
   }
   
+  h1{
+    font-size:xx-large;
+    font-weight: 1000;
+    width: auto;
+    background-color:beige;
+  }
   .container {
     height: 70vh;
     display: flex;
@@ -38,23 +44,15 @@
     cursor: pointer;
   }
   
-  #reset-btn {
+  .btn {
     padding: 1rem;
     font-size: 1.25rem;
-    background-color: #191913;
+    font-weight: 500;
+    background-image: linear-gradient(white,black);
     color: #fff;
     border-radius: 1rem;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #new-btn {
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #fff;
-    border-radius: 1rem;
-    border: none;
+    border: solid 2px black;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 5 );
     cursor: pointer;
   }
   
