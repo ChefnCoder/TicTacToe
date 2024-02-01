@@ -40,11 +40,12 @@
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
     font-size: 8vmin;
     color: white;
-    background-color: #2ec4b6;
+    background-color: #06e9d2;
     cursor: pointer;
+    transition: transform 0.2s ease;
   }
-  .box:hover{
-    background-color: #0ea495 ;
+  .box:active{
+    transform: scale(0.96);
   }
   .btn {
     padding: 1rem;
@@ -54,10 +55,12 @@
     color: #fff;
     border-radius: 1rem;
     border: solid 2px black;
-    /* box-shadow: 0 0 1rem rgba(0, 0, 0, 5 ); */
+    transition: transform 0.2s ease;
     cursor: pointer;
   }
-  
+.btn:active {
+  transform: scale(0.96);
+}
   #msg {
     color: #04b42a;
     font-size: 5vmin;
