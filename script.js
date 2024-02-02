@@ -4,10 +4,12 @@ let newGameBtn = document.querySelector("#new-btn"); //chosen new game btn
 let msgContainer = document.querySelector(".msg-container"); //chosen msg container
 let msg = document.querySelector("#msg"); //chosen msg class
 let body = document.querySelector("body");
-
+let xscore = document.querySelector(".xscore");
+let oscore = document.querySelector(".oscore");
+//these two score variable keep record of score and and reinitialised only only rest button pressed
 let turnO = true; //playerX, playerO
 let count = 0; //To Track Draw
-
+let xwin=0,owin=0;
 //below all are winning patterns
 const winPatterns = [
   [0, 1, 2],
@@ -78,6 +80,15 @@ const enableBoxes = () => {
 
 //show winner function firstly display congratulation line and then disables boxes.
 const showWinner = (winner) => {
+  if(winner=="X") {
+    xwin++;
+    xscore.innerHTML="X Won: "+xwin+" times";
+  }
+  else {
+    owin++;
+    oscore.innerHTML="O Won: "+owin+" times";
+  }
+  //console.log(typeof(winner));
   msg.innerText = `Congratulations, ${winner} is Winner`;
   msgContainer.classList.remove("hide");
 };
@@ -116,7 +127,7 @@ const checkWinner = () => {
 };
 
 function changeboxcolor(box1,box2,box3){
-  console.log(typeof box1);
+  //console.log(typeof box1);
   box1.style.backgroundColor ="#ff595e";
   box2.style.backgroundColor ="#ff595e";
   box3.style.backgroundColor ="#ff595e";
@@ -132,6 +143,11 @@ newGameBtn.addEventListener("click", ()=>{
 resetBtn.addEventListener("click",()=>{
    audio2.play();
    resetGame(resetBtn);
+   xwin=0;
+   owin=0;
+   xscore.innerHTML="X Won: ";
+   oscore.innerHTML="O Won: ";
+
 });
 
 //resetgame function takes the buttonname as argument on whom these functions are to be applied
