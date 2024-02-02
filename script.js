@@ -6,7 +6,7 @@ let msg = document.querySelector("#msg"); //chosen msg class
 let body = document.querySelector("body");
 let xscore = document.querySelector(".xscore");
 let oscore = document.querySelector(".oscore");
-
+//these two score variable keep record of score and and reinitialised only only rest button pressed
 let turnO = true; //playerX, playerO
 let count = 0; //To Track Draw
 let xwin=0,owin=0;
